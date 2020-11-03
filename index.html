@@ -27,12 +27,12 @@
 			const calc = (i * space) + v
 			value = calc > size ? size : calc;
 			drawline(ctx, value, 0, size, value, 'red');
-			drawline(ctx, 0, value, value, size, 'blue');
 			drawline(ctx, value, size, size, size - value, 'green');
+			drawline(ctx, 0, value, value, size, 'blue');
 			drawline(ctx, 0, size - value, value, 0, 'orange');
 		}
 		v++;
-		if(v > space - 1) v = 0; // A cada 7 repetiÁıes È como se resetasse o loop, isso por que o espaÁamento de linhas È 8 
+		if(v > space - 1) v = 0; // A cada 7 repeti√ß√µes √© como se resetasse o loop, isso por que o espa√ßamento de linhas √© 8 
 	}, 50)
 </script>
 
