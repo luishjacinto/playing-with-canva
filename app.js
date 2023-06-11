@@ -106,9 +106,9 @@ function initCard(card) {
 
 function setTransform(x, y, deg, duration) {
     current.style.transform = `translate3d(${x}px, ${y}px, 0) rotate(${deg}deg)`;
+    if (duration) current.style.transition = `transform ${duration}ms`;
     likeText.style.opacity = Math.abs((x / innerWidth) * 2.1);
     likeText.className = `is-like ${x > 0 ? "like" : "nope"}`;
-    if (duration) current.style.transition = `transform ${duration}ms`;
 }
 
 function onPointerDown({ clientX, clientY }) {
@@ -170,7 +170,7 @@ function complete() {
         if (next) initCard(next);
         current = next;
         likeText = current.children[0]
-        
+
         const messages = [
             ["Tem certeza mesmo?", "Sério?"],
             ["Ta interessada mesmo?", "Ainda da pra desistir!"],
