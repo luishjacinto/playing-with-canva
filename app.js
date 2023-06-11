@@ -160,16 +160,17 @@ function complete() {
     setTransform(flyX, flyY, (flyX / innerWidth) * 50, innerWidth);
     (moveX = 0), (moveY = 0);
     const prev = current;
-    const next = current.previousElementSibling;
-    if (next) initCard(next);
-    current = next;
-    likeText = current.children[0]
 
     setTimeout(() => frame.removeChild(prev), innerWidth);
 
     if (completes == 8) {
         showMatch();
     } else {
+        const next = current.previousElementSibling;
+        if (next) initCard(next);
+        current = next;
+        likeText = current.children[0]
+        
         const messages = [
             ["Tem certeza mesmo?", "Sério?"],
             ["Ta interessada mesmo?", "Ainda da pra desistir!"],
