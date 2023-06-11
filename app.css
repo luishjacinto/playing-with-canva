@@ -128,10 +128,11 @@ html, body {
 }
 
 .its_match {
-    background-image: url('./match.png');
-    background-size: cover;
-    height: 10.2vh;
-    width: 75vw;
+  background-image: url('./match.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 10vh;
+  width: 75vw;
 }
 
 .liked_each_other {
