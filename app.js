@@ -21,40 +21,40 @@ const data = [
     },
     {
         img: `${imgurUrl}4XZdHFw.jpeg`,
-        name: "Nós",
-        age: "25",
+        name: "Nós em pelotas",
+        age: "❤️",
         distance: "1",
     },
     {
         img: `${imgurUrl}FoJ8ef8.jpeg`,
-        name: "Nós",
-        age: "25",
+        name: "Nós na Lambe",
+        age: "❤️",
         distance: "1",
     },
     {
         img: `${imgurUrl}kH4SWBX.jpeg`,
-        name: "Nós",
-        age: "25",
+        name: "Nós bebendo corote",
+        age: "❤️",
         distance: "1",
     },
     {
         img: `${imgurUrl}PcIT6n0.jpeg`,
-        name: "Nós",
-        age: "25",
+        name: "Nós na Lambe dnv",
+        age: "❤️",
         distance: "1",
     },
     {
         img: `${imgurUrl}Hn2NWIC.jpeg`,
-        name: "Xuxu e paixão",
-        age: "25",
+        name: "Nós",
+        age: "❤️",
         distance: "1",
     },
     {
         img: `${imgurUrl}gzRsFEz.jpeg`,
-        name: "Namorados",
-        age: "25",
+        name: "Xuxu e Paixão",
+        age: "❤️",
         distance: "1",
-    }
+    },
 ];
 const frame = document.body.querySelector(".frame");
 data.forEach((_data) => appendCard(_data));
@@ -144,8 +144,7 @@ function complete() {
         initCard(current);
         setTransform(0, 0, 0, 100);
         setTimeout(() => (current.style.transition = ""), 100);
-        moveX = 0,
-        moveY = 0;
+        (moveX = 0), (moveY = 0);
         return Swal.fire({
             title: "Ta de sacanagem, né?",
             html: "Chateado, tenta de novo :(",
@@ -159,15 +158,14 @@ function complete() {
 
     const flyY = (moveY / moveX) * flyX;
     setTransform(flyX, flyY, (flyX / innerWidth) * 50, innerWidth);
-    moveX = 0,
-    moveY = 0;
+    (moveX = 0), (moveY = 0);
     const prev = current;
     const next = current.previousElementSibling;
     if (next) initCard(next);
     current = next;
 
     setTimeout(() => frame.removeChild(prev), innerWidth);
-    console.log(completes)
+
     if (completes == 8) {
         showMatch();
     } else {
@@ -176,13 +174,13 @@ function complete() {
             ["Ta interessada mesmo?", "Ainda da pra desistir!"],
             ["A partir daqui não tem volta", "Estou avisando!"],
             null,
-            null
-        ]
+            null,
+        ];
 
         if (messages[completes]) {
             Swal.fire({
-                title: messages[completes] ? messages[completes][0] : '',
-                html: messages[completes] ? messages[completes][1] : '',
+                title: messages[completes] ? messages[completes][0] : "",
+                html: messages[completes] ? messages[completes][1] : "",
                 timer: 3000,
                 timerProgressBar: true,
                 didOpen: () => {
@@ -215,7 +213,7 @@ function showMatch() {
         </div>
     `);
 
-    $('.date').on('click', () => {
+    $(".date").on("click", () => {
         Swal.fire({
             title: "Te amo, meu xuxu!",
             html: "Feliz dia dos namorados!",
@@ -225,9 +223,9 @@ function showMatch() {
                 Swal.showLoading();
             },
         }).then((_) => {});
-    })
+    });
 
-    $('.break').on('click', () => {
+    $(".break").on("click", () => {
         Swal.fire({
             title: "Poxa!",
             timer: 2000,
@@ -236,6 +234,5 @@ function showMatch() {
                 Swal.showLoading();
             },
         }).then((_) => {});
-    })
-
+    });
 }
