@@ -11,6 +11,9 @@ html, body {
   overflow: hidden;
   font-family: 'Nunito', sans-serif;
   background-color: #edeef3;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .frame {
@@ -67,6 +70,8 @@ html, body {
     text-decoration: underline;
     font-size: 1.25rem;
     letter-spacing: 2px;
+    transition: all .2s;
+    transform: translateY(0px);
 }
 
 .card .is-like {

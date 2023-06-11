@@ -214,7 +214,7 @@ function cancel() {
 
 function showMatch() {
     $("body").html(`
-        <div style="background-image: url(${data[2].img}); background-size: cover; width: 100%; height: 100%; filter: brightness(0.5);">
+        <div style="background-image: url(${data[10].img}); background-size: cover; width: 100%; height: 100%; filter: brightness(0.68); background-position-x: -82px;">
         </div>
         <div id="match">
             <div class="its_match"></div>
@@ -239,15 +239,11 @@ function showMatch() {
         }).then((_) => {});
     });
 
-    $(".break").on("click", () => {
-        Swal.fire({
-            title: "Poxa!",
-            html: "Tem certeza?",
-            timer: 2000,
-            timerProgressBar: true,
-            didOpen: () => {
-                Swal.showLoading();
-            },
-        }).then((_) => {});
+    $(".break").on("pointerdown", () => {
+        $(".break").css('transform', 'translateY(88px)')
+    });
+
+    $(".break").on("pointerup pointerleave", () => {
+        $(".break").css('transform', 'translateY(0px)')
     });
 }
