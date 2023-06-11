@@ -174,4 +174,5 @@ html, body {
 .card .bottom .info {
   margin: 3% 0 0 2%;
   font-size: clamp(10px, 1.1em, 20px);
+  max-width: 80vw;
 }
