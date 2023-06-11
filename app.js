@@ -171,7 +171,7 @@ function complete() {
         showMatch();
     } else {
         const messages = [
-            ["Tem certeza mesmo?", "Serio?"],
+            ["Tem certeza mesmo?", "Sério?"],
             ["Ta interessada mesmo?", "Ainda da pra desistir!"],
             ["A partir daqui não tem volta", "Estou avisando!"],
             null,
