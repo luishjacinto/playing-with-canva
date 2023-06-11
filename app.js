@@ -163,6 +163,7 @@ function complete() {
     const next = current.previousElementSibling;
     if (next) initCard(next);
     current = next;
+    likeText = current.children[0]
 
     setTimeout(() => frame.removeChild(prev), innerWidth);
 
