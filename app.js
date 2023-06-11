@@ -4,21 +4,57 @@ const data = [
     {
         img: `${imgurUrl}ib7GKMo.jpeg`,
         name: "Luis Jacinto",
-        price: "25",
+        age: "25",
         distance: "1",
     },
     {
         img: `${imgurUrl}IFLvJcs.jpeg`,
         name: "Luis Jacinto",
-        price: "25",
+        age: "25",
         distance: "1",
     },
     {
         img: `${imgurUrl}Cmk1Lj3.jpeg`,
-        name: "Xuxu",
-        price: "25",
+        name: "Paixão",
+        age: "25",
         distance: "1",
     },
+    {
+        img: `${imgurUrl}4XZdHFw.jpeg`,
+        name: "Nós",
+        age: "25",
+        distance: "1",
+    },
+    {
+        img: `${imgurUrl}FoJ8ef8.jpeg`,
+        name: "Nós",
+        age: "25",
+        distance: "1",
+    },
+    {
+        img: `${imgurUrl}kH4SWBX.jpeg`,
+        name: "Nós",
+        age: "25",
+        distance: "1",
+    },
+    {
+        img: `${imgurUrl}PcIT6n0.jpeg`,
+        name: "Nós",
+        age: "25",
+        distance: "1",
+    },
+    {
+        img: `${imgurUrl}Hn2NWIC.jpeg`,
+        name: "Xuxu e paixão",
+        age: "25",
+        distance: "1",
+    },
+    {
+        img: `${imgurUrl}gzRsFEz.jpeg`,
+        name: "Namorados",
+        age: "25",
+        distance: "1",
+    }
 ];
 const frame = document.body.querySelector(".frame");
 data.forEach((_data) => appendCard(_data));
@@ -52,7 +88,7 @@ function appendCard(data) {
           <div class="bottom">
             <div class="title">
               <span>${data.name}</span>
-              <span>${data.price}</span>
+              <span>${data.age}</span>
             </div>
             <div class="info">
               ${data.distance} km
@@ -107,11 +143,12 @@ function complete() {
     if (flyX < 0) {
         initCard(current);
         setTransform(0, 0, 0, 100);
-        // setTimeout(() => (current.style.transition = ""), 100);
-
+        setTimeout(() => (current.style.transition = ""), 100);
+        moveX = 0,
+        moveY = 0;
         return Swal.fire({
             title: "Ta de sacanagem, né?",
-            html: "Chateado :(",
+            html: "Chateado, tenta de novo :(",
             timer: 2000,
             timerProgressBar: true,
             didOpen: () => {
@@ -122,15 +159,37 @@ function complete() {
 
     const flyY = (moveY / moveX) * flyX;
     setTransform(flyX, flyY, (flyX / innerWidth) * 50, innerWidth);
-
+    moveX = 0,
+    moveY = 0;
     const prev = current;
     const next = current.previousElementSibling;
     if (next) initCard(next);
     current = next;
 
     setTimeout(() => frame.removeChild(prev), innerWidth);
-    if (completes == 2) {
+    console.log(completes)
+    if (completes == 8) {
         showMatch();
+    } else {
+        const messages = [
+            ["Tem certeza mesmo?", "Serio?"],
+            ["Ta interessada mesmo?", "Ainda da pra desistir!"],
+            ["A partir daqui não tem volta", "Estou avisando!"],
+            null,
+            null
+        ]
+
+        if (messages[completes]) {
+            Swal.fire({
+                title: messages[completes] ? messages[completes][0] : '',
+                html: messages[completes] ? messages[completes][1] : '',
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: () => {
+                    Swal.showLoading();
+                },
+            }).then((_) => {});
+        }
     }
 
     completes++;
@@ -171,7 +230,6 @@ function showMatch() {
     $('.break').on('click', () => {
         Swal.fire({
             title: "Poxa!",
-            // html: "Chateado :(",
             timer: 2000,
             timerProgressBar: true,
             didOpen: () => {
