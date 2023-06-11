@@ -5,55 +5,67 @@ const data = [
         img: `${imgurUrl}ib7GKMo.jpeg`,
         name: "Luis Jacinto",
         age: "25",
-        distance: "1",
+        distance: 1,
     },
     {
         img: `${imgurUrl}IFLvJcs.jpeg`,
         name: "Luis Jacinto",
         age: "25",
-        distance: "1",
+        distance: 1,
     },
     {
         img: `${imgurUrl}Cmk1Lj3.jpeg`,
         name: "Paixão",
         age: "25",
-        distance: "1",
+        distance: 1,
     },
     {
         img: `${imgurUrl}4XZdHFw.jpeg`,
         name: "Nós em pelotas",
         age: "❤️",
-        distance: "1",
+        distance: "Me perdoa por não ter sido o melhor que eu podia contigo.",
     },
     {
         img: `${imgurUrl}FoJ8ef8.jpeg`,
         name: "Nós na Lambe",
         age: "❤️",
-        distance: "1",
+        distance: "Me perdoa por ser meio chato as vezes, prometo melhorar.",
     },
     {
         img: `${imgurUrl}kH4SWBX.jpeg`,
         name: "Nós bebendo corote",
         age: "❤️",
-        distance: "1",
+        distance: "Prometo sempre te fazer rir.",
+    },
+    {
+        img: `${imgurUrl}3zUA1BT.jpeg`,
+        name: "Xuxu",
+        age: "❤️",
+        distance: "Prometo sempre exaltar o mulherão que você é.",
+    },
+    {
+        img: `${imgurUrl}cSgTG7U.jpeg`,
+        name: "Nós se divertindo",
+        age: "❤️",
+        distance: "Prometo ser o melhor que eu puder pra nós",
     },
     {
         img: `${imgurUrl}PcIT6n0.jpeg`,
         name: "Nós na Lambe dnv",
         age: "❤️",
-        distance: "1",
+        distance: "O que mais quero é te fazer feliz como você me faz.",
     },
     {
         img: `${imgurUrl}Hn2NWIC.jpeg`,
         name: "Nós",
         age: "❤️",
-        distance: "1",
+        distance: "Xuxu, muito obrigado por todos nossos momentos juntos.",
     },
     {
         img: `${imgurUrl}gzRsFEz.jpeg`,
         name: "Xuxu e Paixão",
         age: "❤️",
-        distance: "1",
+        distance: '"Engraçado como às vezes você simplesmente encontra as coisas." - Tracy Mcconnell',
     },
 ];
 const frame = document.body.querySelector(".frame");
@@ -91,7 +103,7 @@ function appendCard(data) {
               <span>${data.age}</span>
             </div>
             <div class="info">
-              ${data.distance} km
+              ${Number.isInteger(data.distance) ? `${data.distance} km` : data.distance}
             </div>
           </div>
         `;
@@ -163,7 +175,7 @@ function complete() {
 
     setTimeout(() => frame.removeChild(prev), innerWidth);
 
-    if (completes == 8) {
+    if (completes == 10) {
         showMatch();
     } else {
         const next = current.previousElementSibling;
@@ -230,6 +242,7 @@ function showMatch() {
     $(".break").on("click", () => {
         Swal.fire({
             title: "Poxa!",
+            html: "Tem certeza?",
             timer: 2000,
             timerProgressBar: true,
             didOpen: () => {
